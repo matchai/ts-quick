@@ -1,0 +1,26 @@
+{
+  "name": "ts-quick",
+  "version": "0.1.0",
+  "description": "Quick static analysis using TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescript",
+    "static",
+    "analysis",
+    "javascript",
+    "precommit"
+  ],
+  "author": "Matan Kushner <hello@matchai.me>",
+  "license": "ISC",
+  "dependencies": {},
+  "peerDependencies": {
+    "typescript": ">=3.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.12",
+    "typescript": "^3.2.1"
+  }
+}
