@@ -35,37 +35,35 @@ const defaultOptions = {
 
 /**
  * Statically analyze the provided fileNames with TypeScript.
- * 
- * @param {string[]} fileNames - A list of files.
+ * @param {string[]} patterns - A list of glob patterns.
  * @param {object} options - The compiler options which should be used by TypeScript.
  */
-function analyzeFiles(patterns, options) {
+async function analyzeFiles(patterns, options) {
   options = options || defaultOptions;
 
   const isEmptyPatterns = patterns.length === 0;
   const defaultPattern = `**/*.{${options.extensions.join(',')}}`;
 
-  return globby(
+  const paths = await globby(
     isEmptyPatterns ? [defaultPattern] : arrify(patterns), {
       ignore: options.ignore,
       gitignore: true,
       cwd: options.cwd
     }
-  ).then(paths => {
-    let program = ts.createProgram(paths, options.config);
-    let emitResult = program.emit();
-  
-    let allDiagnostics = ts
-      .getPreEmitDiagnostics(program)
-      .concat(emitResult.diagnostics);
-  
-    return allDiagnostics;
-  })
+  );
+
+  let program = ts.createProgram(paths, options.config);
+  let emitResult = program.emit();
+
+  let allDiagnostics = ts
+    .getPreEmitDiagnostics(program)
+    .concat(emitResult.diagnostics);
+
+  return allDiagnostics;
 }
 
 /**
  * Format all provided diagnostics with the TypeScript-provided formatter.
- * 
  * @param {object[]} allDiagnostics - A list of all reported diagnostics from TypeScript.
  */
 function typescriptFormatter(allDiagnostics) {

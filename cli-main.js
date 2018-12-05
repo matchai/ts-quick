@@ -13,14 +13,21 @@ const cli = meow(`
     $ ts-quick *.js !foo.js
 `)
 
+/**
+ * Format and log the reported results.
+ * @param {string[]} diagnostics - A list of reported diagnostics from TypeScript
+ */
 function log(diagnostics) {
   const reporter = tsQuick.typescriptFormatter;
   process.stdout.write(reporter(diagnostics));
   process.exit(diagnostics.length === 0 ? 0 : 1 );
 }
 
-const {input} = cli;
+async function main() {
+  const {input} = cli;
 
-tsQuick.analyzeFiles(input).then(diagnostics => {
+  const diagnostics = await tsQuick.analyzeFiles(input)
   log(diagnostics);
-});
+}
+
+main();
