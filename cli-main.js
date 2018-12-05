@@ -16,6 +16,7 @@ const cli = meow(`
 function log(diagnostics) {
   const reporter = tsQuick.typescriptFormatter;
   process.stdout.write(reporter(diagnostics));
+  process.exit(diagnostics.length === 0 ? 0 : 1 );
 }
 
 const {input} = cli;
