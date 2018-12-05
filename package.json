@@ -1,9 +1,10 @@
 {
   "name": "ts-quick",
   "version": "0.1.0",
-  "description": "Quick static analysis using TypeScript",
-  "main": "index.js",
+  "description": "Quick static analysis of JavaScript code using TypeScript",
+  "bin": "cli.js",
   "scripts": {
+    "debug": "node --nolazy --inspect-brk=9229 cli.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -11,16 +12,20 @@
     "static",
     "analysis",
     "javascript",
-    "precommit"
+    "precommit",
+    "cli"
   ],
   "author": "Matan Kushner <hello@matchai.me>",
   "license": "ISC",
-  "dependencies": {},
-  "peerDependencies": {
-    "typescript": ">=3.2.0"
+  "dependencies": {
+    "arrify": "^1.0.1",
+    "debug": "^4.1.0",
+    "globby": "^8.0.1",
+    "meow": "^5.0.0",
+    "resolve-cwd": "^2.0.0",
+    "typescript": "^3.2.1"
   },
   "devDependencies": {
-    "@types/node": "^10.12.12",
-    "typescript": "^3.2.1"
+    "@types/node": "^10.12.12"
   }
 }
