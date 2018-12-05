@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 'use strict';
+// @ts-ignore: No type declaration exists
 const resolveCwd = require('resolve-cwd');
 
 const localCLI = resolveCwd.silent('ts-quick/cli');

@@ -11,11 +11,22 @@ const cli = meow(`
     $ ts-quick
     $ ts-quick index.js
     $ ts-quick *.js !foo.js
-`)
+    $ ts-quick --implicitAny
+`, {
+  booleanDefault: undefined,
+  flags:{
+    implicitAny: {
+      type: 'boolean'
+    },
+    ignore: {
+      type: 'string'
+    }
+  }
+})
 
 /**
  * Format and log the reported results.
- * @param {string[]} diagnostics - A list of reported diagnostics from TypeScript
+ * @param {object[]} diagnostics - A list of reported diagnostics from TypeScript
  */
 function log(diagnostics) {
   const reporter = tsQuick.typescriptFormatter;
@@ -24,9 +35,9 @@ function log(diagnostics) {
 }
 
 async function main() {
-  const {input} = cli;
+  const {input, flags: options} = cli;
 
-  const diagnostics = await tsQuick.analyzeFiles(input)
+  const diagnostics = await tsQuick.analyzeFiles(input, options)
   log(diagnostics);
 }
 

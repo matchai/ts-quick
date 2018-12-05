@@ -2,36 +2,7 @@ const path = require('path');
 const ts = require('typescript');
 const globby = require('globby');
 const arrify = require('arrify');
-
-const defaultConfig = {
-  allowJs: true,
-  checkJs: true,
-  noEmit: true,
-  noImplicitAny: true,
-  target: ts.ScriptTarget.Latest,
-  jsx: true,
-  module: ts.ModuleKind.CommonJS
-};
-
-const defaultExtensions = ['js', 'jsx'];
-
-const defaultIgnore = [
-  '**/node_modules/**',
-	'**/bower_components/**',
-	'flow-typed/**',
-	'coverage/**',
-	'{tmp,temp}/**',
-	'**/*.min.js',
-	'vendor/**',
-	'dist/**'
-]
-
-const defaultOptions = {
-  config: defaultConfig,
-  extensions: defaultExtensions,
-  ignore: defaultIgnore,
-  cwd: path.resolve(process.cwd())
-}
+const optionsManager = require('./lib/options-manager');
 
 /**
  * Statically analyze the provided fileNames with TypeScript.
@@ -39,14 +10,14 @@ const defaultOptions = {
  * @param {object} options - The compiler options which should be used by TypeScript.
  */
 async function analyzeFiles(patterns, options) {
-  options = options || defaultOptions;
+  options = optionsManager.buildConfig(options);
 
   const isEmptyPatterns = patterns.length === 0;
-  const defaultPattern = `**/*.{${options.extensions.join(',')}}`;
+  const defaultPattern = `**/*.{js,jsx,ts,tsx}`;
 
   const paths = await globby(
     isEmptyPatterns ? [defaultPattern] : arrify(patterns), {
-      ignore: options.ignore,
+      ignore: options.ignores,
       gitignore: true,
       cwd: options.cwd
     }
