@@ -13,6 +13,7 @@
     "test": "./cli.js --ignore test && jest"
   },
   "files": [
+    "lib",
     "*.js"
   ],
   "keywords": [
