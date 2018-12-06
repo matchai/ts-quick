@@ -11,8 +11,6 @@ Easily enforce JSDoc types throughout your JavaScript project, using the proven 
 ## Install
 
 ```sh
-$ npm install --save-dev ts-quick
-# or globally
 $ npm install --global ts-quick
 ```
 
@@ -36,5 +34,6 @@ $ ts-quick --help
     $ ts-quick
     $ ts-quick index.js
     $ ts-quick *.js !foo.js
+    $ ts-quick --init
     $ ts-quick --implicitAny
 ```

@@ -10,6 +10,7 @@ const cli = meow(
     $ ts-quick [<file|glob> ...]
 
   Options
+    --init         Add ts-quick to your project
     --implicitAny  Allow variables to implicitly have the "any" type
     --ignore       Additional paths to ignore  [Can be set multiple times]
     --cwd=<dir>    Working directory for files
@@ -19,6 +20,7 @@ const cli = meow(
     $ ts-quick index.js
     $ ts-quick *.js !foo.js
     $ ts-quick --init
+    $ ts-quick --implicitAny
 `,
   {
     booleanDefault: undefined,
