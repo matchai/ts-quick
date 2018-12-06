@@ -7,6 +7,11 @@ const cli = meow(`
   Usage
     $ ts-quick [<file|glob> ...]
 
+  Options
+    --implicitAny  Allow variables to implicitly have the "any" type
+    --ignore       Additional paths to ignore  [Can be set multiple times]
+    --cwd=<dir>    Working directory for files
+
   Examples
     $ ts-quick
     $ ts-quick index.js
@@ -23,6 +28,10 @@ const cli = meow(`
     },
     cwd: {
       type: 'string'
+    },
+    // WIP: Only present for testing
+    reporter: {
+      type: 'string'
     }
   }
 })
@@ -34,8 +43,13 @@ const {input, flags: options} = cli;
  * @param {object[]} diagnostics - A list of reported diagnostics from TypeScript
  */
 function log(diagnostics) {
-  const reporter = tsQuick.typescriptFormatter;
-  process.stdout.write(reporter(diagnostics));
+  let reporter = tsQuick.typescriptFormatter;
+
+  if (options.reporter === 'json') {
+    reporter = require('./lib/jsonFormatter');
+  }
+
+  console.log(reporter(diagnostics));
   process.exit(diagnostics.length === 0 ? 0 : 1 );
 }
 

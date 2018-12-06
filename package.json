@@ -1,7 +1,7 @@
 {
   "name": "ts-quick",
   "version": "0.1.0",
-  "description": "⚡️ Quick static analysis of your JS project",
+  "description": "⚡️ Zero configuration static analysis using TypeScript",
   "license": "ISC",
   "repository": "matchai/ts-quick",
   "author": "Matan Kushner <hello@matchai.me>",
