@@ -23,8 +23,6 @@ $ npm install --global ts-quick
 ```
 $ ts-quick --help
 
-  ⚡️ Zero configuration static analysis using TypeScript
-
   Usage
     $ ts-quick [<file|glob> ...]
 
