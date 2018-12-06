@@ -1,12 +1,14 @@
 <div align="center">
   <img alt="lightning bolt" src="./media/logo.svg" width=100px>
 </div>
-<h3 align="center">ts-quick ⚡️</h3>
+<h3 align="center">ts-quick️</h3>
 <p align="center">Zero configuration JavaScript static analysis</p>
 
 ---
 
 Easily enforce JSDoc types throughout your JavaScript project, using the proven power of the TypeScript.
+
+![ts-quick reporting two errors](./media/demo.png)
 
 ## Install
 

@@ -58,7 +58,7 @@ function log(diagnostics) {
     reporter = require("./lib/jsonFormatter");
   }
 
-  console.log(reporter(diagnostics));
+  console.log("\n" + reporter(diagnostics));
   process.exit(diagnostics.length === 0 ? 0 : 1);
 }
 
