@@ -19,7 +19,7 @@ $ npm install --global ts-quick
 ## Usage
 
 ```sh
-$ zap --help
+$ ts-quick --help
 
   ⚡️ Zero configuration static analysis using TypeScript
 
