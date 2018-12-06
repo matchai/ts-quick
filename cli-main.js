@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-'use strict';
-const meow = require('meow');
-const tsQuick = require('.');
-const projectInit = require('./lib/projectInit');
+"use strict";
+const meow = require("meow");
+const tsQuick = require(".");
+const projectInit = require("./lib/projectInit");
 
-const cli = meow(`
+const cli = meow(
+  `
   Usage
     $ ts-quick [<file|glob> ...]
 
@@ -18,29 +19,31 @@ const cli = meow(`
     $ ts-quick index.js
     $ ts-quick *.js !foo.js
     $ ts-quick --init
-`, {
-  booleanDefault: undefined,
-  flags:{
-    init: {
-      type: 'boolean'
-    },
-    implicitAny: {
-      type: 'boolean'
-    },
-    ignore: {
-      type: 'string'
-    },
-    cwd: {
-      type: 'string'
-    },
-    // WIP: Only present for testing
-    reporter: {
-      type: 'string'
+`,
+  {
+    booleanDefault: undefined,
+    flags: {
+      init: {
+        type: "boolean"
+      },
+      implicitAny: {
+        type: "boolean"
+      },
+      ignore: {
+        type: "string"
+      },
+      cwd: {
+        type: "string"
+      },
+      // WIP: Only present for testing
+      reporter: {
+        type: "string"
+      }
     }
   }
-})
+);
 
-const {input, flags: options} = cli;
+const { input, flags: options } = cli;
 
 /**
  * Format and log the reported results.
@@ -49,19 +52,19 @@ const {input, flags: options} = cli;
 function log(diagnostics) {
   let reporter = tsQuick.typescriptFormatter;
 
-  if (options.reporter === 'json') {
-    reporter = require('./lib/jsonFormatter');
+  if (options.reporter === "json") {
+    reporter = require("./lib/jsonFormatter");
   }
 
   console.log(reporter(diagnostics));
-  process.exit(diagnostics.length === 0 ? 0 : 1 );
+  process.exit(diagnostics.length === 0 ? 0 : 1);
 }
 
 async function main() {
   if (options.init) {
-    await projectInit(options)
+    await projectInit(options);
   } else {
-    const diagnostics = await tsQuick.analyzeFiles(input, options)
+    const diagnostics = await tsQuick.analyzeFiles(input, options);
     log(diagnostics);
   }
 }

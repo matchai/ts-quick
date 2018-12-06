@@ -1,8 +1,8 @@
-const path = require('path');
-const ts = require('typescript');
-const globby = require('globby');
-const arrify = require('arrify');
-const optionsManager = require('./lib/options-manager');
+const path = require("path");
+const ts = require("typescript");
+const globby = require("globby");
+const arrify = require("arrify");
+const optionsManager = require("./lib/options-manager");
 
 /**
  * Statically analyze the provided fileNames with TypeScript.
@@ -16,7 +16,8 @@ async function analyzeFiles(patterns, options) {
   const defaultPattern = `**/*.{js,jsx,ts,tsx}`;
 
   const paths = await globby(
-    isEmptyPatterns ? [defaultPattern] : arrify(patterns), {
+    isEmptyPatterns ? [defaultPattern] : arrify(patterns),
+    {
       ignore: options.ignores,
       gitignore: true,
       cwd: options.cwd
@@ -42,7 +43,7 @@ function typescriptFormatter(allDiagnostics) {
     getCanonicalFileName: fileName => fileName,
     getCurrentDirectory: () => process.cwd(),
     getNewLine: () => ts.sys.newLine
-  })
+  });
 }
 
 module.exports.analyzeFiles = analyzeFiles;
