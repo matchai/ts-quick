@@ -3,11 +3,13 @@
 
 ---
 
-Quickly add static analysis to your JavaScript projects
+Easily enforce JSDoc types throughout your JavaScript project, using the proven power of the TypeScript.
 
 ## Install
 
 ```sh
+$ npm install --save-dev ts-quick
+# or globally
 $ npm install --global ts-quick
 ```
 
@@ -22,6 +24,7 @@ $ zap --help
     $ ts-quick [<file|glob> ...]
 
   Options
+    --init         Add ts-quick to your project
     --implicitAny  Allow variables to implicitly have the "any" type
     --ignore       Additional paths to ignore  [Can be set multiple times]
     --cwd=<dir>    Working directory for files

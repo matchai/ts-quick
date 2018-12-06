@@ -2,6 +2,7 @@
 'use strict';
 const meow = require('meow');
 const tsQuick = require('.');
+const projectInit = require('./lib/projectInit');
 
 const cli = meow(`
   Usage
@@ -16,10 +17,13 @@ const cli = meow(`
     $ ts-quick
     $ ts-quick index.js
     $ ts-quick *.js !foo.js
-    $ ts-quick --implicitAny
+    $ ts-quick --init
 `, {
   booleanDefault: undefined,
   flags:{
+    init: {
+      type: 'boolean'
+    },
     implicitAny: {
       type: 'boolean'
     },
@@ -54,8 +58,12 @@ function log(diagnostics) {
 }
 
 async function main() {
-  const diagnostics = await tsQuick.analyzeFiles(input, options)
-  log(diagnostics);
+  if (options.init) {
+    await projectInit(options)
+  } else {
+    const diagnostics = await tsQuick.analyzeFiles(input, options)
+    log(diagnostics);
+  }
 }
 
 main();
