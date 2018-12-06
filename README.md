@@ -1,3 +1,6 @@
+<div align="center">
+  <img alt="lightning bolt" src="./media/logo.svg" width=100px>
+</div>
 <h3 align="center">ts-quick ⚡️</h3>
 <p align="center">Zero configuration JavaScript static analysis</p>
 
