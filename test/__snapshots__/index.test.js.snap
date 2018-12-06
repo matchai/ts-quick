@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ignore files in .gitignore 1`] = `
+[Error: Command failed: /Users/kushnem/dev/personal/ts-quick/cli-main.js
+
+[96mbar.js[0m:[93m1[0m:[93m17[0m - [91merror[0m[90m TS7006: [0mParameter 'n' implicitly has an 'any' type.
+
+[7m1[0m function square(n) {
+[7m [0m [91m                ~[0m
+]
+`;

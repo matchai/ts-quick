@@ -10,7 +10,7 @@
     "node": ">=8"
   },
   "scripts": {
-    "test": "./cli.js",
+    "test": "./cli.js --ignore test && jest",
     "debug": "node --nolazy --inspect-brk=9229 ./cli.js"
   },
   "files": [
@@ -42,6 +42,8 @@
     "@types/debug": "0.0.31",
     "@types/globby": "^8.0.0",
     "@types/meow": "^5.0.0",
-    "@types/node": "^10.12.12"
+    "@types/node": "^10.12.12",
+    "execa": "^1.0.0",
+    "jest": "^23.6.0"
   }
 }

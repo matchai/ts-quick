@@ -20,9 +20,14 @@ const cli = meow(`
     },
     ignore: {
       type: 'string'
+    },
+    cwd: {
+      type: 'string'
     }
   }
 })
+
+const {input, flags: options} = cli;
 
 /**
  * Format and log the reported results.
@@ -35,8 +40,6 @@ function log(diagnostics) {
 }
 
 async function main() {
-  const {input, flags: options} = cli;
-
   const diagnostics = await tsQuick.analyzeFiles(input, options)
   log(diagnostics);
 }
