@@ -5,6 +5,7 @@
 <p align="center">Zero configuration JavaScript static analysis</p>
 <p align="center"><a href="https://travis-ci.org/matchai/ts-quick"><img src="https://badgen.net/travis/matchai/ts-quick" alt="Build Status"></a></p>
 </p>
+
 ---
 
 Easily enforce JSDoc types throughout your JavaScript project, using the proven power of the TypeScript.
