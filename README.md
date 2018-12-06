@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="lightning bolt" src="./media/logo.svg" width=100px>
+  <img alt="lightning bolt" src="./media/logo.png" width=100px>
 
 <h3 align="center">ts-quick️</h3>
 <p align="center">Zero-configuration JavaScript static analysis tool</p>
