@@ -14,13 +14,13 @@ Easily enforce JSDoc types throughout your JavaScript project, using the proven 
 
 ## Install
 
-```sh
+```
 $ npm install --global ts-quick
 ```
 
 ## Usage
 
-```sh
+```
 $ ts-quick --help
 
   ⚡️ Zero configuration static analysis using TypeScript
