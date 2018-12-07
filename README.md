@@ -8,8 +8,6 @@
 
 ---
 
-![will be available on npm in 24 hours](./media/temp-banner.png)
-
 Easily catch bugs and enforce JSDoc types throughout your JavaScript project using the proven power of TypeScript.
 Either use it as a standalone CLI, or add it to your test script to ensure that your JS the best it can be.
 
