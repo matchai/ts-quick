@@ -1,9 +1,12 @@
 <p align="center">
   <img alt="lightning bolt" src="./media/logo.png" width=100px>
-
-<h3 align="center">ts-quick️</h3>
-<p align="center">Zero-configuration JavaScript static analysis tool</p>
-<p align="center"><a href="https://travis-ci.org/matchai/ts-quick"><img src="https://badgen.net/travis/matchai/ts-quick" alt="Build Status"></a></p>
+  <h3 align="center">ts-quick️</h3>
+  <p align="center">Zero-configuration JavaScript static analysis tool</p>
+  <p align="center">
+    <a href="https://travis-ci.org/matchai/ts-quick"><img src="https://badgen.net/travis/matchai/ts-quick" alt="Build Status"></a>
+    <a href="https://www.npmjs.com/package/ts-quick"><img src="https://badgen.net/npm/v/ts-quick" alt="NPM Version"></a>
+    <a href="https://www.npmjs.com/package/ts-quick"><img src="https://badgen.net/npm/license/ts-quick" alt="NPM License"></a>
+  </p>
 </p>
 
 ---
