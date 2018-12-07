@@ -59,5 +59,12 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
+  },
+  "renovate": {
+    "extends": [
+      "config:base",
+      ":rebaseStalePrs",
+      ":automergeMinor"
+    ]
   }
 }
