@@ -1,5 +1,15 @@
 language: node_js
+cache:
+  directories:
+    - ~/.npm
+notifications:
+  email: false
 node_js:
-  - "node"
-  - "lts/*"
-  - "8"
+  - 'node'
+  - '10'
+  - '9'
+  - '8'
+after_success:
+  - npm run travis-deploy-once "npm run semantic-release"
+branches:
+  only: master

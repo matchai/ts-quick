@@ -1,6 +1,6 @@
 {
   "name": "ts-quick",
-  "version": "0.1.1",
+  "version": "0.0.0-semantic-release",
   "description": "⚡️ Zero configuration static analysis using TypeScript",
   "license": "ISC",
   "repository": "matchai/ts-quick",
@@ -10,7 +10,9 @@
     "node": ">=8"
   },
   "scripts": {
-    "test": "./cli.js --ignore test && jest"
+    "test": "./cli.js --ignore test && jest",
+    "travis-deploy-once": "travis-deploy-once",
+    "semantic-release": "semantic-release"
   },
   "files": [
     "lib",
@@ -53,7 +55,9 @@
     "husky": "1.2.0",
     "jest": "23.6.0",
     "prettier": "1.15.3",
-    "pretty-quick": "1.8.0"
+    "pretty-quick": "1.8.0",
+    "travis-deploy-once": "^5.0.9",
+    "semantic-release": "^15.12.4"
   },
   "husky": {
     "hooks": {
