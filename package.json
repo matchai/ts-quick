@@ -10,9 +10,7 @@
     "node": ">=8"
   },
   "scripts": {
-    "test": "./cli.js --ignore test && jest",
-    "travis-deploy-once": "travis-deploy-once",
-    "semantic-release": "semantic-release"
+    "test": "./cli.js --ignore test && jest"
   },
   "files": [
     "lib",
@@ -55,9 +53,7 @@
     "husky": "1.2.0",
     "jest": "23.6.0",
     "prettier": "1.15.3",
-    "pretty-quick": "1.8.0",
-    "travis-deploy-once": "^5.0.9",
-    "semantic-release": "^15.12.4"
+    "pretty-quick": "1.8.0"
   },
   "husky": {
     "hooks": {
