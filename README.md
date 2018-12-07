@@ -42,3 +42,11 @@ $ ts-quick --help
     $ ts-quick --init
     $ ts-quick --implicitAny
 ```
+
+## License
+
+ISC © [Matan Kushner](https://matchai.me/)
+
+### Attribution
+
+The ts-quick logo is a derivative of the "flash-outline" icon in [Typicons](https://github.com/stephenhutchings/typicons.font) by [stephenhutchings](https://github.com/stephenhutchings), used under [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0/).<br>The ts-quick logo is licensed under [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0/) by [Matan Kushner](https://matchai.me/).
