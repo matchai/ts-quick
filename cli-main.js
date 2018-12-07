@@ -2,7 +2,7 @@
 "use strict";
 const meow = require("meow");
 const tsQuick = require(".");
-const projectInit = require("./lib/projectInit");
+const projectInit = require("./lib/project-init");
 
 const cli = meow(
   `
@@ -55,10 +55,10 @@ function log(diagnostics) {
   let reporter = tsQuick.typescriptFormatter;
 
   if (options.reporter === "json") {
-    reporter = require("./lib/jsonFormatter");
+    reporter = require("./lib/json-formatter");
   }
 
-  console.log("\n" + reporter(diagnostics));
+  process.stdout.write(reporter(diagnostics));
   process.exit(diagnostics.length === 0 ? 0 : 1);
 }
 
