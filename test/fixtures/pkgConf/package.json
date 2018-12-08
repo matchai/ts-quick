@@ -1,5 +1,5 @@
 {
-  "name": "default",
+  "name": "pkg-conf",
   "version": "1.0.0",
   "ts-quick": {
     "ignore": "bar.js",
