@@ -44,6 +44,70 @@ $ ts-quick --help
     $ ts-quick --implicitAny
 ```
 
+## Workflow
+
+The recommended workflow is to add ts-quick locally to your project to have it run with tests.
+
+Simply run `$ ts-quick --init` to add ts-quick to your package.json.
+
+### Before
+
+```json
+{
+  "name": "example-package",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^23.0.0"
+  }
+}
+```
+
+### After
+
+```json
+{
+  "name": "example-package",
+  "scripts": {
+    "test": "ts-quick && jest"
+  },
+  "devDependencies": {
+    "jest": "^23.0.0",
+    "ts-quick": "^1.1.0"
+  }
+}
+```
+
+Then just run `$ npm test` and ts-quick will be run before your tests.
+
+## Config
+
+You can configure options in ts-quick by putting them in package.json:
+
+```json
+{
+  "name": "example-package",
+  "ts-quick": {
+    "implicitAny": true,
+    "ignores": ["./test", "foo.js"]
+  }
+}
+```
+
+### implicitAny
+
+Type: `boolean`<br>
+Default: `false` _(types are required)_
+
+If enabled, ts-quick allows expressions and declarations to have an implied `any` type.
+
+### ignores
+
+Type: `Array`
+
+Some [paths](lib/options-manager.js) are ignored by default, including paths in `.gitignore`. Additional ignores can be added here.
+
 ## License
 
 ISC © [Matan Kushner](https://matchai.me/)
