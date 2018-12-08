@@ -28,7 +28,7 @@ test("the default configuration finds errors", async () => {
   );
 });
 
-test("implicitAny ignores cases there's no type annotation", async () => {
+test("implicitAny ignores missing type annotations", async () => {
   const cwd = path.join(__dirname, "fixtures/default");
 
   let error;
@@ -47,7 +47,7 @@ test("implicitAny ignores cases there's no type annotation", async () => {
   );
 });
 
-test("ignore files in .gitignore", async () => {
+test("correctly ignores files in .gitignore", async () => {
   const cwd = path.join(__dirname, "fixtures/gitignore");
 
   let error;
@@ -66,7 +66,7 @@ test("ignore files in .gitignore", async () => {
   );
 });
 
-test("ignore files explicitly called when also in .gitignore", async () => {
+test("correctly ignores files explicitly called when also in .gitignore", async () => {
   const cwd = path.join(__dirname, "fixtures/gitignore");
 
   let error;
@@ -79,7 +79,7 @@ test("ignore files explicitly called when also in .gitignore", async () => {
   expect(error).toBeUndefined();
 });
 
-test("negative gitignores", async () => {
+test("correctly locates negative gitignores", async () => {
   const cwd = path.join(__dirname, "fixtures/negative-gitignore");
 
   let error;
