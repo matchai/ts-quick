@@ -43,6 +43,9 @@ $ ts-quick --help
     $ ts-quick *.js !foo.js
     $ ts-quick --init
     $ ts-quick --implicitAny
+
+  Tips
+    Put options in package.json instead of using flags so other tools can read it.
 ```
 
 ## Workflow
