@@ -6,6 +6,10 @@ node_js:
   - "9"
   - "8"
 
+script:
+  - npm test -- --coverage
+  - npx codecov
+
 deploy:
   - provider: script
     skip_cleanup: true
