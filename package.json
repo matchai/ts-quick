@@ -10,7 +10,9 @@
     "node": ">=8"
   },
   "scripts": {
-    "test": "./cli.js && jest"
+    "test": "./cli.js && npm run test:unit",
+    "test:unit": "jest",
+    "format": "pretty-quick"
   },
   "files": [
     "lib",

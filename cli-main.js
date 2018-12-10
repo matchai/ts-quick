@@ -59,7 +59,7 @@ function log(diagnostics) {
   let reporter = tsQuick.typescriptFormatter;
 
   if (options.reporter === "json") {
-    reporter = require("./lib/json-formatter");
+    reporter = require("./lib/eslint-json-formatter");
   }
 
   process.stdout.write(reporter(diagnostics));
