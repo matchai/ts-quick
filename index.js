@@ -27,19 +27,19 @@ async function analyzeFiles(patterns, options) {
   let program = ts.createProgram(paths, options.config);
   let emitResult = program.emit();
 
-  let allDiagnostics = ts
+  let diagnostics = ts
     .getPreEmitDiagnostics(program)
     .concat(emitResult.diagnostics);
 
-  return allDiagnostics;
+  return diagnostics;
 }
 
 /**
  * Format all provided diagnostics with the TypeScript-provided formatter.
- * @param {ts.Diagnostic[]} allDiagnostics - A list of all reported diagnostics from TypeScript.
+ * @param {ts.Diagnostic[]} diagnostics - A list of all reported diagnostics from TypeScript.
  */
-function typescriptFormatter(allDiagnostics) {
-  return ts.formatDiagnosticsWithColorAndContext(allDiagnostics, {
+function typescriptFormatter(diagnostics) {
+  return ts.formatDiagnosticsWithColorAndContext(diagnostics, {
     getCanonicalFileName: fileName => fileName,
     getCurrentDirectory: () => process.cwd(),
     getNewLine: () => ts.sys.newLine
