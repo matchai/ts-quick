@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 "use strict";
+const ts = require("typescript");
 const meow = require("meow");
 const tsQuick = require(".");
 const projectInit = require("./lib/project-init");
@@ -52,7 +53,7 @@ const { input, flags: options } = cli;
 
 /**
  * Format and log the reported results.
- * @param {object[]} diagnostics - A list of reported diagnostics from TypeScript
+ * @param {ts.Diagnostic[]} diagnostics - A list of reported diagnostics from TypeScript
  */
 function log(diagnostics) {
   let reporter = tsQuick.typescriptFormatter;

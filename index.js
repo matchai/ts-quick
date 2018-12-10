@@ -36,7 +36,7 @@ async function analyzeFiles(patterns, options) {
 
 /**
  * Format all provided diagnostics with the TypeScript-provided formatter.
- * @param {object[]} allDiagnostics - A list of all reported diagnostics from TypeScript.
+ * @param {ts.Diagnostic[]} allDiagnostics - A list of all reported diagnostics from TypeScript.
  */
 function typescriptFormatter(allDiagnostics) {
   return ts.formatDiagnosticsWithColorAndContext(allDiagnostics, {
