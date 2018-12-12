@@ -1,7 +1,7 @@
 const adapter = require("../lib/eslint-formatter-adapter");
 
 describe("categoryToSeverity", () => {
-  it('correctly adapts an "error"', () => {
+  it("correctly adapts an error", () => {
     const diagnostic = { category: 1 };
 
     const result = adapter.categoryToSeverity(diagnostic);
@@ -17,4 +17,12 @@ describe("categoryToSeverity", () => {
       expect(result).toEqual({ severity: 1 });
     }
   );
+});
+
+describe("codeToRuleId", () => {
+  it("correctly converts code to ruleId", () => {
+    const diagnostic = { code: 7006 };
+    const result = adapter.codeToRuleId(diagnostic);
+    expect(result).toEqual({ ruleId: "TS7006" });
+  });
 });
