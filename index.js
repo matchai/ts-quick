@@ -37,11 +37,12 @@ async function analyzeFiles(patterns, options) {
 /**
  * Format all provided diagnostics with the TypeScript-provided formatter.
  * @param {ts.Diagnostic[]} diagnostics - A list of all reported diagnostics from TypeScript.
+ * @param {string} cwd - The directory of the project being analyzed
  */
-function typescriptFormatter(diagnostics) {
+function typescriptFormatter(diagnostics, cwd) {
   return ts.formatDiagnosticsWithColorAndContext(diagnostics, {
     getCanonicalFileName: fileName => fileName,
-    getCurrentDirectory: () => process.cwd(),
+    getCurrentDirectory: () => cwd,
     getNewLine: () => ts.sys.newLine
   });
 }

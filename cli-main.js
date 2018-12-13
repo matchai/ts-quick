@@ -62,7 +62,7 @@ function log(diagnostics) {
     reporter = require("./lib/eslint-json-formatter");
   }
 
-  process.stdout.write(reporter(diagnostics));
+  process.stdout.write(reporter(diagnostics, options.cwd));
   process.exit(diagnostics.length === 0 ? 0 : 1);
 }
 
