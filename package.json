@@ -48,7 +48,7 @@
     "@types/execa": "0.9.0",
     "@types/globby": "8.0.0",
     "@types/meow": "5.0.0",
-    "@types/node": "10.12.15",
+    "@types/node": "10.12.17",
     "@types/pkg-conf": "2.1.0",
     "@types/read-pkg-up": "3.0.1",
     "@types/write-pkg": "3.1.0",
