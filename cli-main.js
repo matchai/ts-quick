@@ -58,8 +58,13 @@ const { input, flags: options } = cli;
 function log(diagnostics) {
   let reporter = tsQuick.typescriptFormatter;
 
-  if (options.reporter === "json") {
-    reporter = require("./lib/eslint-json-formatter");
+  switch (options.reporter) {
+    case "json":
+      reporter = require("./lib/json-formatter");
+      break;
+    case "eslint-json":
+      reporter = require("./lib/eslint-json-formatter");
+      break;
   }
 
   process.stdout.write(reporter(diagnostics));
