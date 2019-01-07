@@ -28,6 +28,30 @@ test("the default configuration finds errors", async () => {
   );
 });
 
+test("the eslint json adapter finds errors", async () => {
+  const cwd = path.join(__dirname, "fixtures/default");
+
+  let error;
+  try {
+    await main(["--reporter=eslint-json"], { cwd });
+  } catch (err) {
+    error = err;
+  }
+
+  const diagnostics = JSON.parse(error.stdout);
+  expect(diagnostics).toHaveLength(2);
+  expect(diagnostics[0]).toHaveProperty("file.fileName", "bar.js");
+  expect(diagnostics[0]).toHaveProperty(
+    "messageText",
+    "Cannot find name 'add'."
+  );
+  expect(diagnostics[1]).toHaveProperty("file.fileName", "foo.js");
+  expect(diagnostics[1]).toHaveProperty(
+    "messageText",
+    "Parameter 'n' implicitly has an 'any' type."
+  );
+});
+
 test("implicitAny ignores missing type annotations", async () => {
   const cwd = path.join(__dirname, "fixtures/default");
 

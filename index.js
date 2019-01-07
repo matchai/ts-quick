@@ -1,4 +1,5 @@
 const path = require("path");
+const eslint = require("eslint");
 const ts = require("typescript");
 const globby = require("globby");
 const arrify = require("arrify");
@@ -46,5 +47,6 @@ function typescriptFormatter(diagnostics) {
   });
 }
 
-module.exports.analyzeFiles = analyzeFiles;
+module.exports.getFormatter = eslint.CLIEngine.getFormatter;
 module.exports.typescriptFormatter = typescriptFormatter;
+module.exports.analyzeFiles = analyzeFiles;

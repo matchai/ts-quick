@@ -2,7 +2,8 @@
 "use strict";
 const ts = require("typescript");
 const meow = require("meow");
-const tsQuick = require(".");
+const { analyzeFiles, getFormatter, typescriptFormatter } = require(".");
+const { adaptDiagnostics } = require("./lib/eslint-formatter-adapter");
 const projectInit = require("./lib/project-init");
 
 const cli = meow(
@@ -56,18 +57,26 @@ const { input, flags: options } = cli;
  * @param {ts.Diagnostic[]} diagnostics - A list of reported diagnostics from TypeScript
  */
 function log(diagnostics) {
-  let reporter = tsQuick.typescriptFormatter;
-
-  switch (options.reporter) {
-    case "json":
-      reporter = require("./lib/json-formatter");
-      break;
-    case "eslint-json":
-      reporter = require("./lib/eslint-json-formatter");
-      break;
+  // switch (options.reporter) {
+  //   case "json":
+  //     reporter = require("./lib/json-formatter");
+  //     break;
+  //   case "eslint-json":
+  //     reporter = require("./lib/eslint-json-formatter");
+  //     break;
+  //   default:
+  // reporter = tsQuick.getFormatter(options.reporter);
+  // }
+  let report;
+  if (options.reporter) {
+    const reporter = getFormatter(options.reporter);
+    const results = adaptDiagnostics(diagnostics);
+    report = reporter(results);
+  } else {
+    report = typescriptFormatter(diagnostics);
   }
 
-  process.stdout.write(reporter(diagnostics));
+  process.stdout.write(report);
   process.exit(diagnostics.length === 0 ? 0 : 1);
 }
 
@@ -75,7 +84,7 @@ async function main() {
   if (options.init) {
     await projectInit(options);
   } else {
-    const diagnostics = await tsQuick.analyzeFiles(input, options);
+    const diagnostics = await analyzeFiles(input, options);
     log(diagnostics);
   }
 }
