@@ -33,7 +33,7 @@
     "arrify": "1.0.1",
     "debug": "4.1.1",
     "execa": "1.0.0",
-    "globby": "9.1.0",
+    "globby": "9.2.0",
     "has-yarn": "2.0.0",
     "meow": "5.0.0",
     "pkg-conf": "3.0.0",
