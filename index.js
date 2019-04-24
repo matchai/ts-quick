@@ -1,4 +1,3 @@
-const path = require("path");
 const ts = require("typescript");
 const globby = require("globby");
 const arrify = require("arrify");
