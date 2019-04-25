@@ -30,7 +30,7 @@
     "verify"
   ],
   "dependencies": {
-    "arrify": "1.0.1",
+    "arrify": "2.0.1",
     "debug": "4.1.1",
     "execa": "1.0.0",
     "globby": "9.2.0",
