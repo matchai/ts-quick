@@ -47,7 +47,7 @@
     "@types/debug": "4.1.4",
     "@types/execa": "0.9.0",
     "@types/meow": "5.0.0",
-    "@types/node": "10.14.5",
+    "@types/node": "10.14.6",
     "@types/pkg-conf": "2.1.0",
     "@types/read-pkg-up": "3.0.1",
     "@types/write-pkg": "3.1.0",
