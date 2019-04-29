@@ -40,7 +40,7 @@
     "read-pkg-up": "5.0.0",
     "resolve-cwd": "2.0.0",
     "typescript": "3.3.4000",
-    "write-pkg": "3.2.0"
+    "write-pkg": "4.0.0"
   },
   "devDependencies": {
     "@types/arrify": "1.0.4",
