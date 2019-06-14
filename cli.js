@@ -5,7 +5,7 @@ const resolveCwd = require("resolve-cwd");
 
 const localCLI = resolveCwd.silent("ts-quick/cli");
 
-if (localCLI) {
+if (localCLI && localCLI !== __filename) {
   const debug = require("debug")("ts-quick");
   debug("Using local install of ts-quick");
   require(localCLI);
