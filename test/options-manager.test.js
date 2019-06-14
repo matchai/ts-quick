@@ -27,7 +27,7 @@ describe("buildConfig", () => {
       checkJs: true,
       noEmit: true,
       noImplicitAny: true,
-      target: 6,
+      target: 8,
       jsx: true,
       module: 1
     });
@@ -52,7 +52,7 @@ describe("buildConfig", () => {
       checkJs: true,
       noEmit: true,
       noImplicitAny: false,
-      target: 6,
+      target: 8,
       jsx: true,
       module: 1
     });
