@@ -51,7 +51,7 @@
     "@types/pkg-conf": "2.1.0",
     "@types/read-pkg-up": "3.0.1",
     "@types/write-pkg": "3.1.0",
-    "husky": "2.4.1",
+    "husky": "2.5.0",
     "jest": "24.8.0",
     "prettier": "1.18.2",
     "pretty-quick": "1.11.1"
